@@ -1,5 +1,7 @@
 #!/usr/bin/env ruby
 
+#require './prac6'
+
 class Matrices
 	def mapmap(a)
 		a.map { |r|
@@ -12,7 +14,9 @@ class Matrices
 	def to_m(a)
 		a = a.split(/\n/)
 		a = a.map { |r| r.split(/\s+/) }
+		#a = a.map { |r| r.split(/\//) }
 		a = mapmap(a) { |x| x.to_f }
+		#a = mapmap(a) { |x, y| Fraccion.new(x, y) }
 	end
 
 	def read_matrices(fn)
@@ -66,7 +70,7 @@ end
 if __FILE__ == $0
 	mx = Matrices.new
 
-	a, b = mx.read_matrices('datos.dat')
+	a, b = mx.read_matrices('modif.dat')
 
 	puts "Matriz A: "
 	puts ""	
